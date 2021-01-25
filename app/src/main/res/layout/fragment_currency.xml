@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.workbanktest.viewmodel.CurrencyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+            <TextView
+                style="@style/TextAppearance.SubTitle"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/first_bank_label"
+            style="@style/TextAppearance.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/first_bank_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <TextView
+            android:id="@+id/first_date_label"
+            style="@style/TextAppearance.DateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@={viewModel.datePb}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:text="21.01.2021" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/first_currency_table"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/second_bank_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_currency"
+            app:listCurrencyPB="@{viewModel.currencyPBData}"
+            app:spanCount="1"
+            tools:listitem="@layout/list_pb_currency" />
+
+        <TextView
+            android:id="@+id/second_bank_label"
+            style="@style/TextAppearance.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/second_bank_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.45" />
+
+        <TextView
+            android:id="@+id/second_date_label"
+            style="@style/TextAppearance.DateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/second_bank_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/second_bank_label"
+            tools:text="21.01.2021"
+            android:text="@={viewModel.dateNb}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/second_currency_table"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/second_bank_label"
+            app:layout_constraintVertical_bias="0.0"
+            app:listCurrencyNB="@{viewModel.currencyNBData}"
+            app:spanCount="1"
+            tools:listitem="@layout/list_nb_currency" />
+
+        <TextView
+            android:id="@+id/label_currency"
+            style="@style/TextAppearance.TitleSmaller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:minEms="3"
+            android:text="@string/label_currency"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_bank_label" />
+
+        <TextView
+            android:id="@+id/label_purchase"
+            style="@style/TextAppearance.TitleSmaller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minEms="3"
+            android:text="@string/label_purchase"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/label_currency"
+            app:layout_constraintEnd_toStartOf="@+id/label_sale"
+            app:layout_constraintStart_toEndOf="@+id/label_currency"
+            app:layout_constraintTop_toTopOf="@+id/label_currency" />
+
+        <TextView
+            android:id="@+id/label_sale"
+            style="@style/TextAppearance.TitleSmaller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:minEms="3"
+            android:text="@string/label_sale"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/label_purchase"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/label_purchase" />
+
+        <Button
+            android:id="@+id/first_calendar_button"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="8dp"
+            android:background="@mipmap/calendar"
+            app:layout_constraintBottom_toBottomOf="@+id/first_date_label"
+            app:layout_constraintEnd_toStartOf="@+id/first_date_label"
+            app:layout_constraintTop_toTopOf="@+id/first_date_label" />
+
+        <Button
+            android:id="@+id/second_calendar_button"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="8dp"
+            android:background="@mipmap/calendar"
+            app:layout_constraintBottom_toBottomOf="@+id/second_date_label"
+            app:layout_constraintEnd_toStartOf="@+id/second_date_label"
+            app:layout_constraintTop_toTopOf="@+id/second_date_label" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

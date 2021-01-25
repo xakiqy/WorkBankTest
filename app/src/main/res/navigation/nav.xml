@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav"
+    app:startDestination="@id/currencyFragment">
+
+    <fragment
+        android:id="@+id/currencyFragment"
+        android:name="com.example.workbanktest.ui.CurrencyFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_currencyFragment_to_currencyGraphFragment"
+            app:destination="@id/currencyGraphFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/currencyGraphFragment"
+        android:name="com.example.workbanktest.ui.CurrencyGraphFragment"
+        android:label="@string/label_usd_graph" />
+</navigation>

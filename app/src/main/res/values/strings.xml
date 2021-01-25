@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Курсы валют</string>
+    <string name="first_bank_label">ПриватБанк</string>
+    <string name="second_bank_label">НБУ</string>
+    <string name="label_currency">Валюта</string>
+    <string name="label_purchase">Покупка</string>
+    <string name="label_sale">Продажа</string>
+    <string name="label_usd">USD</string>
+    <string name="label_week">неделя</string>
+    <string name="label_month">месяц</string>
+    <string name="label_half_year">6 мес.</string>
+    <string name="label_year">год</string>
+    <string name="label_usd_graph">usd граф</string>
+    <string name="label_attention">Осторожно! Плохой API сервер, долгое ожидание.</string>
+</resources>
